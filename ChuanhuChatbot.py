@@ -15,7 +15,7 @@ logging.basicConfig(
     format="%(asctime)s [%(levelname)s] [%(filename)s:%(lineno)d] %(message)s",
 )
 
-my_api_key = ""  # 在这里输入你的 API 密钥
+my_api_key = "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"  # 在这里输入你的 API 密钥
 
 # if we are running in Docker
 if os.environ.get("dockerrun") == "yes":
@@ -449,7 +449,8 @@ if __name__ == "__main__":
         if authflag:
             demo.queue().launch(share=False, auth=(username, password), favicon_path="./assets/favicon.png", inbrowser=True)
         else:
-            demo.queue().launch(share=False, favicon_path="./assets/favicon.ico", inbrowser=True)  # 改为 share=True 可以创建公开分享链接
+            demo.queue().launch(server_name="35.77.135.68", server_port=80,auth=("gpt", "llu")) # 可设置用户名与密码
+#             demo.queue().launch(share=False, favicon_path="./assets/favicon.ico", inbrowser=True)  # 改为 share=True 可以创建公开分享链接
         # demo.queue().launch(server_name="0.0.0.0", server_port=7860, share=False) # 可自定义端口
-        demo.queue().launch(server_name="35.77.135.68", server_port=80,auth=("gpt", "llu")) # 可设置用户名与密码
+        
         # demo.queue().launch(auth=("在这里填写用户名", "在这里填写密码")) # 适合Nginx反向代理
